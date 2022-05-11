@@ -1,0 +1,20 @@
+@import '../../assets/colors.scss';
+
+.container_it{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.text_center{
+    text-align: center;
+    font-family: $heading;
+    font-weight: 900;
+    color: aliceblue;
+    padding: 14px 0 0 0;
+}
+
+.img_nf{
+    max-width: 70vw;
+    margin: 10px auto;
+}

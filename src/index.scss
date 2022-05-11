@@ -1,0 +1,38 @@
+@import "../src/assets/colors.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  background: $primary-color;
+}
+.container {
+  margin: 0px 40px;
+}
+
+@-moz-document url-prefix() {
+
+  /* Disable scrollbar Firefox */
+  html {
+      scrollbar-width: none;
+  }
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}

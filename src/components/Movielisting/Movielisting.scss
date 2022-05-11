@@ -1,0 +1,21 @@
+@import "../../assets/colors.scss";
+
+.movie-list,
+.show-list {
+  margin: 20px 0px;
+  h2 {
+    color: $font-secondary;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-family: $heading;
+    font-weight: 700;
+    font-size: 48px;
+    padding: 10px;
+  }
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-gap: 15px;
+}
