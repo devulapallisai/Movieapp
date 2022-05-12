@@ -6,3 +6,7 @@ export const store=configureStore({
         movies:moviesReducer
     },
 })
+
+export type AppDispatch = typeof store.dispatch;
+
+export type RootState = ReturnType<typeof store.getState>

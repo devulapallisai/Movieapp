@@ -10,7 +10,7 @@ interface Search {
   Poster: string;
 }
 
-const MovieCard = ({ movie }: Search) => {
+const MovieCard = ({ movie }: { movie: Search }) => {
   return (
     <div className="card-item">
       <Link to={`/movie/${movie.imdbID}`}>

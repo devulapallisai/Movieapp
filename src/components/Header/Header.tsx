@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import user from "../../assets/user.png";
+// import user from "../../assets/user.png";
 import movie from "../../assets/movie.gif";
 import "./Header.scss";
 import { useDispatch } from "react-redux";
 import { fetchAsyncMovies, fetchAsyncShows } from "../../redux/movies/movies";
+import { AppDispatch } from "../../redux/store";
 
 const Header = () => {
-  const [term, setTerm] = useState("");
-  const dispatch = useDispatch();
+  const [term, setTerm] = useState<string>("");
+  const dispatch = useDispatch<AppDispatch>();
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (term !== "") {
@@ -39,9 +40,9 @@ const Header = () => {
           </button>
         </form>
       </div>
-      <div className="user-image">
+      {/* <div className="user-image">
         <img src={user} alt="user" />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -4,12 +4,12 @@ import Movielisting from "../Movielisting/Movielisting";
 import { useDispatch } from "react-redux";
 import { fetchAsyncMovies, fetchAsyncShows } from "../../redux/movies/movies";
 import "../../index.scss";
+import { AppDispatch } from "../../redux/store";
 function Home() {
-  const movie = "marvel";
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncMovies("Avengers"));
+    dispatch(fetchAsyncShows("Avengers"));
   }, []);
 
   return (

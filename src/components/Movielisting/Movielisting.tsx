@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import MovieCard from "../Card/Card";
 import "./Movielisting.scss";
+import { RootState } from "../../redux/store";
 
 interface Search {
   Title: string;
@@ -20,13 +21,14 @@ interface movie {
 interface error {
   Error: string;
   Response: string;
+  Search: Search[];
 }
 
 function Movielisting() {
-  const movies: movie | error = useSelector(
+  const movies: movie | error | {} = useSelector(
     (state: RootState) => state.movies.movies
   );
-  const shows: movie | error = useSelector(
+  const shows: movie | error | {} = useSelector(
     (state: RootState) => state.movies.shows
   );
   const loading: Boolean = useSelector(
@@ -41,28 +43,36 @@ function Movielisting() {
           <div className="movie-list">
             <h2>Movies</h2>
             <div className="movie-container">
-              {movies.Response === "True" ? (
-                movies.Search.map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
-                ))
+              {"Response" in movies ? (
+                "Error" in movies ? (
+                  <h1>{movies.Error}</h1>
+                ) : (
+                  movies.Search.map((movie: Search, index: number) => (
+                    <MovieCard movie={movie} />
+                  ))
+                )
               ) : (
-                <div className="movies-error">
-                  <h4>{movies.Error}</h4>
-                </div>
+                <>
+                  <h1>Loading...</h1>
+                </>
               )}
             </div>
           </div>
           <div className="movie-list">
             <h2>Shows</h2>
             <div className="movie-container">
-              {shows.Response === "True" ? (
-                shows.Search.map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
-                ))
+              {"Response" in shows ? (
+                "Error" in shows ? (
+                  <h1>{shows.Error}</h1>
+                ) : (
+                  shows.Search.map((movie: Search, index: number) => (
+                    <MovieCard movie={movie} />
+                  ))
+                )
               ) : (
-                <div className="movies-error">
-                  <h4>{shows.error}</h4>
-                </div>
+                <>
+                  <h1>Loading...</h1>
+                </>
               )}
             </div>
           </div>
